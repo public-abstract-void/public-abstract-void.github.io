@@ -51,33 +51,27 @@ async function init() {
 
   // Vertex shader code
   var vertCode = `
-  struct VertexOutput {
-    @builtin(position) position: vec4f,
-    @location(0) color: vec4f,
-  };
-  @vertex // this compute the scene coordinate of each input vertex and its color information
-  fn vertexMain(@location(0) pos: vec2f, @location(1) color: vec4f) -> VertexOutput {
-    var out: VertexOutput;
-    out.position = vec4f(pos, 0, 1); // (pos, Z, W) = (X, Y, Z, W)
-    out.color = color;
-    return out;
+  @vertex // this compute the scene coordinate of each input vertex
+  fn vertexMain(@location(0) pos: vec2f) -> @builtin(position) vec4f {
+    return vec4f(pos, 0, 1); // (pos, Z, W) = (X, Y, Z, W)
   }
   `;
-
+  
   // Fragment shader code
   var fragCode = `
   @fragment // this compute the color of each pixel
-  fn fragmentMain(@location(0) color: vec4f) -> @location(0) vec4f {
-    return color; // (R, G, B, A)
+  fn fragmentMain() -> @location(0) vec4f {
+    return vec4f(238.f/255, 118.f/255, 35.f/255, 1); // (R, G, B, A)
   }
   `;
 
-  // Create a triange geometry in CPU
+  // Line vertices
   var vertices = new Float32Array([
-    // x, y, r, g, b, a - added four values for rgba color
-    0, 0.5, 1, 0, 0, 1,
-    -0.5, 0, 0, 1, 0, 1,
-    0.5,  0, 0, 0, 1, 1,
+  // x, y
+    0, 0.5,
+    -0.5, 0,
+    0.5,  0,
+    0, 0.5, // line strip draw a loop, so set the last vertex the same as the first
   ]);
 
   // Create vertex buffer to store the vertices in GPU
@@ -91,18 +85,12 @@ async function init() {
 
   // Defne vertex buffer layout - how the shader should read the buffer
   var vertexBufferLayout = {
-    arrayStride: 6 * Float32Array.BYTES_PER_ELEMENT,
+    arrayStride: 2 * Float32Array.BYTES_PER_ELEMENT,
     attributes: [{ 
       // position 0 has two floats
       shaderLocation: 0,   // position in the vertex shader
       format: "float32x2", // two coordiantes
       offset: 0,           // no offset in the vertex buffer
-    },
-    {
-      // position 1 has four floats
-      shaderLocation: 1,   // position in the vertex shader
-      format: "float32x4", // four color values
-      offset: 2 * Float32Array.BYTES_PER_ELEMENT, // always after (x, y)
     }],
   };
 
@@ -126,13 +114,16 @@ async function init() {
       targets: [{
         format: canvasFormat        // the target canvas format (the output)
       }]
+    },
+    primitive: {                    // Draw line strip
+      topology: 'line-strip'
     }
   });
 
   // add more render pass to draw the plane
   pass.setPipeline(renderPipeline);      // which render pipeline to use
   pass.setVertexBuffer(0, vertexBuffer); // which vertex buffer is used at location 0
-  pass.draw(vertices.length / 6);        // how many vertices to draw
+  pass.draw(vertices.length / 2);        // how many vertices to draw
   
   /* HERE IT GOES AGAIN! */
 
