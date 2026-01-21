@@ -5,12 +5,6 @@
 # public-abstract-void.github.io
 # public-abstract-void.github.io
 
-## Three Fellow Apprentices:
+## ASSIGNMENT 1:
 
-- Charlie Ostner
-- Nathan Pappas
-- Angie Navarro
-
-## Interested in Game Technologies (only got the one)
-
-## I didn't get to the third part of the icebreaker but I ASSUME THEY WISH TO GO TO REALLY AMAZING MAGICAL REALMS!!!
+Dark Souls is a 2011 action role-playing game (ARPG) developed by From Software. On top of exploring and adventuring through a dark fantasy world, users may also engage in player-versus-player (PvP) combat by invading other users' worlds. In order to have the best chances of winning, some people would even go so far as to build their characters in such a way as to maximize every resource at their disposal, an idea known as "minmaxxing"; of the minmaxxed builds in Dark Souls, the most infamous was GIANTDAD, the figure pictured in ASSIGNMENT 1, doing the taunt appropriately named, "Well, What is it?"
