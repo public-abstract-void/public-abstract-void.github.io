@@ -26,7 +26,7 @@
 @fragment
  fn fragmentMain(@location(0) texCoords: vec2f) -> @location(0) vec4f {
     var outColor: vec4f = textureSample(inTexture, inSampler, texCoords);
-    if outColor.a < .1
+    if (outColor.a < .1)
     {
         discard;
     }else{
