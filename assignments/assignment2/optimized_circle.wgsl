@@ -1,35 +1,100 @@
- @group(0) @binding(0) var inTexture: texture_2d<f32>;
- @group(0) @binding(1) var inSampler: sampler;
+struct tint_symbol_2 {
+  /* @offset(0) */
+  tint_symbol_3 : vec4f,
+  /* @offset(16) */
+  tint_symbol_4 : vec2f,
+}
 
- struct VertexOutput {
-   @builtin(position) pos: vec4f,
-   @location(0) texCoords: vec2f
- };
+alias Arr = array<vec2f, 6u>;
 
- @vertex
- fn vertexMain(@builtin(vertex_index) vIdx: u32) -> VertexOutput {
-   var scale: f32 = .1f;
-   var pos = array<vec2f, 6>(
-     scale * vec2f(-1, -1), scale * vec2f(1, -1), scale * vec2f(-1, 1),
-     scale * vec2f(1, -1), scale * vec2f(1, 1), scale * vec2f(-1, 1)
-   );
-   var texCoords = array<vec2f, 6>(
-     vec2f(0, 1), vec2f(1, 1), vec2f(0, 0),
-     vec2f(1, 1), vec2f(1, 0), vec2f(0, 0)
-   );
-   var out: VertexOutput;
-   out.pos = vec4f(pos[vIdx], 0, 1);
-   out.texCoords = texCoords[vIdx];
-   return out;
- }
+var<private> tint_discarded = false;
+
+var<private> tint_symbol_6_1 : u32;
+
+var<private> tint_symbol_3_1 = vec4f();
+
+var<private> tint_symbol_4_1 = vec2f();
+
+var<private> tint_symbol_4_2 : vec2f;
+
+var<private> value = vec4f();
+
+@group(0) @binding(0) var tint_symbol : texture_2d<f32>;
+
+@group(0) @binding(1) var tint_symbol_1 : sampler;
+
+const x_45 = vec2f(1.0f, -1.0f);
+
+const x_48 = vec2f(-1.0f, 1.0f);
+
+const x_53 = vec2f(1.0f);
+
+fn tint_symbol_5_inner(tint_symbol_6 : u32) -> tint_symbol_2 {
+  var tint_symbol_7 = 0.0f;
+  var tint_symbol_3 = array<vec2f, 6u>();
+  var tint_symbol_4 = array<vec2f, 6u>();
+  var tint_symbol_8 = tint_symbol_2(vec4f(), vec2f());
+  tint_symbol_7 = 0.10000000149011611938f;
+  tint_symbol_3 = Arr((vec2f(-1.0f) * tint_symbol_7), (x_45 * tint_symbol_7), (x_48 * tint_symbol_7), (x_45 * tint_symbol_7), (x_53 * tint_symbol_7), (x_48 * tint_symbol_7));
+  tint_symbol_4 = Arr(vec2f(0.0f, 1.0f), x_53, vec2f(), x_53, vec2f(1.0f, 0.0f), vec2f());
+  let x_73 = tint_symbol_3[tint_symbol_6];
+  tint_symbol_8.tint_symbol_3 = vec4f(x_73.x, x_73.y, 0.0f, 1.0f);
+  tint_symbol_8.tint_symbol_4 = tint_symbol_4[tint_symbol_6];
+  let x_81 = tint_symbol_8;
+  return x_81;
+}
+
+fn tint_symbol_5_1() {
+  let x_87 = tint_symbol_6_1;
+  let x_86 = tint_symbol_5_inner(x_87);
+  tint_symbol_3_1 = x_86.tint_symbol_3;
+  tint_symbol_4_1 = x_86.tint_symbol_4;
+  return;
+}
+
+struct tint_symbol_5_out {
+  @builtin(position)
+  tint_symbol_3_1_1 : vec4f,
+  @location(0)
+  tint_symbol_4_1_1 : vec2f,
+}
+
+@vertex
+fn vertexMain(@builtin(vertex_index) tint_symbol_6_1_param : u32) -> tint_symbol_5_out {
+  tint_symbol_6_1 = tint_symbol_6_1_param;
+  tint_symbol_5_1();
+  return tint_symbol_5_out(tint_symbol_3_1, tint_symbol_4_1);
+}
+
+fn tint_symbol_9_inner(tint_symbol_4_3 : vec2f) -> vec4f {
+  var tint_symbol_10 = vec4f();
+  let x_94 = textureSample(tint_symbol, tint_symbol_1, tint_symbol_4_3);
+  tint_symbol_10 = x_94;
+  if ((tint_symbol_10.w < 0.10000000149011611938f)) {
+    tint_discarded = true;
+  }
+  let x_107 = tint_symbol_10;
+  return (x_107 * vec4f(1.0f, 1.0f, 0.0f, 1.0f));
+}
+
+fn tint_symbol_9_1() {
+  let x_113 = tint_symbol_4_2;
+  let x_112 = tint_symbol_9_inner(x_113);
+  value = x_112;
+  if (tint_discarded) {
+    discard;
+  }
+  return;
+}
+
+struct tint_symbol_9_out {
+  @location(0)
+  value_1 : vec4f,
+}
 
 @fragment
- fn fragmentMain(@location(0) texCoords: vec2f) -> @location(0) vec4f {
-    var outColor: vec4f = textureSample(inTexture, inSampler, texCoords);
-    if (outColor.a < .1)
-    {
-        discard;
-    }else{
-        return outColor * vec4f(1, 1, 0, 1);
-    }
- }
+fn fragmentMain(@location(0) tint_symbol_4_2_param : vec2f) -> tint_symbol_9_out {
+  tint_symbol_4_2 = tint_symbol_4_2_param;
+  tint_symbol_9_1();
+  return tint_symbol_9_out(value);
+}
