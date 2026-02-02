@@ -12,3 +12,8 @@ Dark Souls is a 2011 action role-playing game (ARPG) developed by From Software.
 ## ASSIGNMENT 2:
 
 A simple solar system simulation to show off textures, basic animations, and an example of a preprocessing effect (grayscale).
+
+## ASSIGNMENT 3:
+
+
+THE GAME OF LIFE! 2048 x 2048, workgroups and compute shader logic.
