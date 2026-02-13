@@ -15,5 +15,8 @@ A simple solar system simulation to show off textures, basic animations, and an 
 
 ## ASSIGNMENT 3:
 
-
 THE GAME OF LIFE! 2048 x 2048, workgroups and compute shader logic.
+
+## ASSIGNMENT 4:
+
+A simple particle system that showcases fire and a bunch of bouncing balls! The balls are also textured, have different colors, wrap, respawn, and a bunch of other stuff! Beware though - there are a lot of them (12K+)!
