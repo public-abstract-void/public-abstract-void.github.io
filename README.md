@@ -20,3 +20,7 @@ THE GAME OF LIFE! 2048 x 2048, workgroups and compute shader logic.
 ## ASSIGNMENT 4:
 
 A simple particle system that showcases fire and a bunch of bouncing balls! The balls are also textured, have different colors, wrap, respawn, and a bunch of other stuff! Beware though - there are a lot of them (12K+)!
+
+## ASSIGNMENT 6:
+
+Deep in darkness though a vision wavy like water, distance shapes dwell in a space beyond prior planes. In this 3D camera simulation, explore the basics of 3D rendering with a collection of interactive objects and a camera with which to see!
