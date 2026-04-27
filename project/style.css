@@ -1,0 +1,72 @@
+/* Reset margin and padding for the body and html */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Full height */
+  display: flex;
+  flex-direction: column;
+  background-color: black; /* Background of the page */
+}
+
+.toolSection button {
+  background-color: #1e88e5;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin: 2px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.toolSection button:hover {
+  background-color: #1565c0;
+}
+
+/* Make the canvas fill the remaining space above the UI bar */
+#renderCanvas {
+    image-rendering: pixelated;  /* nearest-neighbor scaling */
+    image-rendering: crisp-edges;
+    background: black;
+    border: 5px solid white;
+    display: block;
+    margin: 0 auto;
+}
+
+/* UI bar at the bottom */
+#uiBar {
+  height: 20vh; /* 20% of viewport height */
+  background: #222;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: sans-serif;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Sections inside the UI bar */
+.toolSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Buttons style */
+#uiBar button {
+  padding: 5px 10px;
+  background: #444;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#uiBar button:hover {
+  background: #666;
+}
+
+/* File input style */
+#uiBar input[type="file"] {
+  cursor: pointer;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Particle Simulation</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.demilked.com%2Fwp-content%2Fuploads%2F2024%2F09%2Frandom-memes-funny-15-605x612.jpeg&f=1&nofb=1&ipt=ba615c5092ecb19b5dfcb6596cfdafb68634496f4f77b0bc9e8129e6d629011c" type="image/x-icon">
+  <script type="module" src="main-full.js"></script>
+</head>
+<body>
+  <div id="app">
+
+    <!-- Render Canvas -->
+    <canvas id="renderCanvas"></canvas>
+    
+    <!-- UI Bar -->
+    <div id="uiBar">
+
+      <!-- Particle Selection -->
+      <div class="toolSection">
+        <button id="fireBtn">Fire</button>
+        <button id="waterBtn">Water</button>
+        <button id="steamBtn">Steam</button>
+        <button id="woodBtn">Wood</button>
+        <button id="plantBtn">Plant</button>
+        <button id="soilBtn">Soil</button>
+        <button id="stoneBtn">Stone</button>
+        <button id="sandBtn">Sand</button>
+        <button id="bombBtn">Bomb</button>
+        <button id="clonerBtn">Cloner</button>
+        <button id="eraserBtn">Eraser</button>
+      </div>
+
+      <!-- Add this for displaying the current selected tool -->
+      <div class="toolSection">
+        <span id="currentToolDisplay">Current Tool: None</span>
+      </div>
+
+      <!-- File Upload -->
+      <div class="toolSection">
+        <button id="loadSimBtn">Load</button>
+        <!-- Removed uploadParticleBtn since it's not needed -->
+        
+        <input type="file" id="loadSimInput" style="display: none;">
+        <!-- <input type="file" id="loadEffectInput" style="display: none;"> -->
+        
+        <button id="speedBtn">Speed: 1x</button>
+        <button id="brushBtn">Brush: 1x1</button>
+        <button id="undoBtn">Undo</button>
+        <button id="saveBtn">Save</button>
+      </div>
+
+      <!-- Simulation Controls -->
+      <div class="toolSection">
+        <button id="pauseBtn">Pause</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+
+    </div>
+    
+  </div>
+</body>
+</html>

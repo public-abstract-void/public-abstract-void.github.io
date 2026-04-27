@@ -24,3 +24,11 @@ A simple particle system that showcases fire and a bunch of bouncing balls! The 
 ## ASSIGNMENT 6:
 
 Deep in darkness though a vision wavy like water, distance shapes dwell in a space beyond prior planes. In this 3D camera simulation, explore the basics of 3D rendering with a collection of interactive objects and a camera with which to see!
+
+## PROJECT ##
+
+A Sandbox Simulation game! Features include:
+
+- Multiple particles, such as: Fire, Water, Soil, Plant, Stone, Sand, Cloner, Wood, Steam, and Bomb!
+- A save/load feature for saving your favorite simulations!
+- Other buttons such as: Undo (Max depth 10), Speed multiplier, Brush size, Eraser, Pause, and Reset!
