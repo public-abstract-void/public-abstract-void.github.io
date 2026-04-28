@@ -25,6 +25,10 @@ A simple particle system that showcases fire and a bunch of bouncing balls! The 
 
 Deep in darkness though a vision wavy like water, distance shapes dwell in a space beyond prior planes. In this 3D camera simulation, explore the basics of 3D rendering with a collection of interactive objects and a camera with which to see!
 
+## ASSIGNMENT 7:
+
+Volumetric rendering of terrain, very similar to a certain blocky game...
+
 ## PROJECT ##
 
 A Sandbox Simulation game! Features include:
